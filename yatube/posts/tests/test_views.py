@@ -197,7 +197,6 @@ class PostsPageTests(TestCase):
     def test_group_page_context(self):
         """Group page context."""
         # Prepare test data
-        error_msg = "Incorrect context['page_obj'] {}{}"
         url = reverse(
             'posts:group_list',
             kwargs={'slug': PostsPageTests.group.slug})

@@ -138,7 +138,7 @@ class PostsURLTests(TestCase):
     def test_url_without_template_redirect_authorized(self):
         """URL without template redirects to url with template."""
         for url, redirects_to in \
-                PostsURLTests.authorized_url_without_template_redirect_map.items():
+            PostsURLTests.authorized_url_without_template_redirect_map.items():
             with self.subTest(url=url):
                 response = self.author_client.get(url)
                 self.assertRedirects(response, redirects_to)

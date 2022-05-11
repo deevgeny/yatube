@@ -1,5 +1,3 @@
-from re import I
-
 from core.paginator import get_page_object
 from django.conf import settings
 from django.contrib.auth.decorators import login_required
