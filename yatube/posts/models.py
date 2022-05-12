@@ -1,5 +1,6 @@
 from django.contrib.auth import get_user_model
 from django.db import models
+from django.conf import settings
 
 User = get_user_model()
 
@@ -58,7 +59,7 @@ class Post(models.Model):
         verbose_name_plural = 'посты'
 
     def __str__(self):
-        return self.text[:15]
+        return self.text[:settings.TEXT_FIELD_LIMIT]
 
 
 class Comment(models.Model):
@@ -92,7 +93,7 @@ class Comment(models.Model):
         verbose_name_plural = 'комментарии'
 
     def __str__(self):
-        return self.text[:15]
+        return self.text[:settings.TEXT_FIELD_LIMIT]
 
 
 class Follow(models.Model):

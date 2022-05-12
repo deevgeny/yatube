@@ -1,5 +1,6 @@
 from django.contrib.auth import get_user_model
 from django.test import TestCase
+from django.conf import settings
 
 from ..models import Comment, Group, Post
 
@@ -24,7 +25,7 @@ class PostModelTest(TestCase):
     def test_model_have_correct_object_name(self):
         """Test model's __str__() method."""
         self.assertEqual(
-            PostModelTest.post.text[:15],
+            PostModelTest.post.text[:settings.TEXT_FIELD_LIMIT],
             str(PostModelTest.post),
             f'Неверно работает функция __str__() в модели {Post}'
         )
@@ -143,7 +144,7 @@ class CommentModelTest(TestCase):
     def test_model_have_correct_object_name(self):
         """Test model's __str__() method."""
         self.assertEqual(
-            CommentModelTest.comment.text[:15],
+            CommentModelTest.comment.text[:settings.TEXT_FIELD_LIMIT],
             str(CommentModelTest.comment),
             f'Неверно работает функция __str__() в модели {Comment}'
         )

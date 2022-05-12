@@ -151,6 +151,7 @@ EMAIL_FILE_PATH = os.path.join(BASE_DIR, 'sent_emails')
 # Posts application constants
 
 PAGINATOR_LIMIT = 10
+TEXT_FIELD_LIMIT = 15
 
 # Custom csrf failure handler view 403
 
