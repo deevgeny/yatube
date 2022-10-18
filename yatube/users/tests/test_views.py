@@ -52,8 +52,6 @@ class UsersPageTests(TestCase):
             reverse(
                 'users:password_change_done'
             ): 'users/password_change_done.html',
-            # '/auth/reset/<uidb64>/<token>':
-            # 'users/password_reset_confirm.html',
         }
         # Run test
         for url, template in authorized_reverse_template_map.items():

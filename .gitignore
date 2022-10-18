@@ -145,7 +145,10 @@ dmypy.json
 
 .mypy_cache
 
-# папки со статикой и медиа
+# Database dump
+dump.json
+
+# Static files
 # static/
 # yatube/posts/static/
 # yatube/media/

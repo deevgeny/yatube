@@ -1,19 +1,12 @@
-# import shutil
-# import tempfile
-# from pathlib import Path
 from http import HTTPStatus
 
-# from django.conf import settings
 from django.contrib.auth import get_user_model
 from django.test import Client, TestCase
 
-# from django.test import override_settings
 
-# TEMP_EMAIL_FILE_PATH = tempfile.mkdtemp(dir=settings.BASE_DIR)
 User = get_user_model()
 
 
-# @override_settings(EMAIL_FILE_PATH=TEMP_EMAIL_FILE_PATH)
 class UsersURLTests(TestCase):
     @classmethod
     def setUpClass(cls):
@@ -32,14 +25,7 @@ class UsersURLTests(TestCase):
         cls.authorized_url_template_map = {
             '/auth/password_change/': 'users/password_change.html',
             '/auth/password_change/done/': 'users/password_change_done.html',
-            # '/auth/reset/<uidb64>/<token>':
-            # 'users/password_reset_confirm.html',
         }
-
-    # @classmethod
-    # def tearDownClass(cls):
-        # super().tearDownClass()
-        # shutil.rmtree(TEMP_EMAIL_FILE_PATH, ignore_errors=True)
 
     def setUp(self):
         self.guest_client = Client()
@@ -96,27 +82,3 @@ class UsersURLTests(TestCase):
                     response,
                     template,
                     error_msg.format(repr(template), repr(url)))
-
-    def test_reset_url_link_exists(self):
-        """Reset URL link from email."""
-        # Prepare test data
-        # Send password reset form
-        form_data = {'email': UsersURLTests.author.email}
-        response = self.guest_client.post(
-            '/auth/password_reset/',
-            data=form_data,
-            follow=True
-        )
-        self.assertRedirects(response, '/auth/password_reset/done/')
-        # Find email in temporary path
-        # p = Path(settings.EMAIL_FILE_PATH)
-        # email = list(p.glob('*.log'))[0]
-        # Open email and parse reset link
-        # with email.open() as f:
-        #    data = f.read()
-        # start_idx = data.index('http')
-        # end_idx = data[start_idx:].index('\n') + start_idx
-        # reset_url = data[start_idx:end_idx]
-        # response = self.guest_client.get(reset_url)
-        # Run test
-        # self.assertEqual(response.status_code, HTTPStatus.OK.value)
