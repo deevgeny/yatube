@@ -1,57 +1,61 @@
-# Социальная сеть блогеров
+# Social network of bloggers
 
-Цель проекта - получить опыт разработки веб-приложений.
+Yatube - social network of bloggers. Here you can register, publish posts, 
+add pictures to them, leave comments on posts and subscribe to your favorite 
+authors.
 
-## Стек технологий
+
+## Technology stack
  - Python 3.7
  - Django 2.2.16
 
- ## Описание проекта
 
- Yatube - это социальная сеть для блогеров. Здесь можно регистрироваться, публиковать
- посты, добавлять к ним картинки, оставлять комментарии к постам и подписываться на понравившихся авторов.
+ ## ORM - models
+- Post - authors posts.
+- Group - authors communities.
+- Comment - posts comments.
+- Follow - subscriptions.
 
- ## Модели ORM
-- Post - посты авторов.
-- Group - сообщества авторов.
-- Comment - комментарии к постам.
-- Follow - подписка на авторов.
+ ## Web application
+Yatube consists of several applications, each of which is responsible for
+a specific functional part of the project.
+- users - user registration and authentication.
+- posts - authors posts, comments and subscriptions.
+- core - paginator and custom error pages.
+- about -  information about projects.
 
- ## Структура веб-приложения
-Yatube - состоит из нескольких приложений, каждое из которых отвечает за
-определенную функциональную часть проекта.
-- users - регистрация новых пользователей и аутентификация.
-- posts - публикации авторов, комментарии к публикациям и подписки на других авторов.
-- core - пагинатор и кастомные страницы ошибок.
-- about -  информация о проекте.
-
-## Настройка и запуск веб-приложения
+## How to install and run
 ```
-# Клонируем репозиторий
-git clone https://github.com/evgeny81d/hw05_final
+# Clone the repository
+git clone https://github.com/evgeny81d/yatube
 
-# Заходим в директорию с проектом
-cd hw05_final
+# Go to the project directory
+cd yatube
 
-# Создаем виртуальное окружение Python версии 3.7
+# Create Python 3.7 virtual environment
 python3.7 -m venv venv
 
-# Активируем виртуальное окружение
+# Activate virtual environment
 source venv/bin/activate
 
-# Установливаем зависимости
+# Install dependencies
 pip install -r requirements.txt --upgrade pip
 
-# Применяем миграции
+# Make migrations
 python3 yatube/manage.py migrate
 
-# Создаем суперпользователя
+# Collect static files
+python3 yatube/manage.py collectstatic --no-input
+
+# Create superuser
 python3 yatube/manage.py createsuperuser
 
-# Запускаем сервер разработки django
+# Run project on django development server
 python3 yatube/manage.py runserver
 ```
 
- [http://127.0.0.1:8000/](http://127.0.0.1:8000/) - главная страница
+## Finally web application is ready for use
+
+ [http://127.0.0.1:8000/](http://127.0.0.1:8000/) - home page
  
- [http://127.0.0.1:8000/admin/](http://127.0.0.1:8000/admin/) - админ панель веб-приложения
+ [http://127.0.0.1:8000/admin/](http://127.0.0.1:8000/admin/) - admin site
