@@ -41,11 +41,8 @@ source venv/bin/activate
 # Install dependencies
 pip install -r requirements.txt --upgrade pip
 
-# Make migrations
+# Run migrations
 python3 yatube/manage.py migrate
-
-# Collect static files
-python3 yatube/manage.py collectstatic --no-input
 
 # Create superuser
 python3 yatube/manage.py createsuperuser
@@ -59,3 +56,4 @@ python3 yatube/manage.py runserver
  [http://127.0.0.1:8000/](http://127.0.0.1:8000/) - home page
  
  [http://127.0.0.1:8000/admin/](http://127.0.0.1:8000/admin/) - admin site
+
