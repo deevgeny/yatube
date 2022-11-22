@@ -57,3 +57,9 @@ python3 yatube/manage.py runserver
  
  [http://127.0.0.1:8000/admin/](http://127.0.0.1:8000/admin/) - admin site
 
+## Security notice
+The above instructions how to install and run the project have only
+demonstration purpose and can be used on local host. 
+
+If you would like to deploy the project on a web server, please read the 
+[documentation](https://docs.djangoproject.com/en/2.2/howto/deployment/).
